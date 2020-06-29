@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Testing
 
 on:
   push:
@@ -7,16 +7,11 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  PHPUnit:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
-    - name: Setup Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: 14.x
-
     - name: Setup PHP
       uses: shivammathur/setup-php@v1
       with:
@@ -28,19 +23,36 @@ jobs:
       id: cache
       uses: actions/cache@v2
       with:
-        path: |
-          ./node_modules/
-          ./vendor/
-        key: ${{ runner.os }}-${{ hashFiles('composer.lock') }}-${{ hashFiles('package*.json') }}
+        path: ./vendor/
+        key: ${{ runner.os }}-${{ hashFiles('composer.lock') }}
 
     - name: Install Dependencies
       if: steps.cache.outputs.cache-hit != 'true'
-      run: |
-        composer install --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
-        npm ci
+      run: composer install --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
       
     - name: PHPUnit tests
-      run: |
-        ./vendor/bin/phpunit phptests
+      run: ./vendor/bin/phpunit phptests
 
+  jest:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+
+    - name: Cache dependencies
+      id: cache
+      uses: actions/cache@v2
+      with:
+        path: ./node_modules/
+        key: ${{ runner.os }}-${{ hashFiles('package*.json') }}
+
+    - name: Install Dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: npm ci
+
+    - name: JS tests
     - run: ./node_modules/.bin/jest
