@@ -19,27 +19,27 @@ jobs:
     - run: npm ci
     - run: ./node_modules/.bin/jest
 
-    - name: Get Composer Cache Directory
-      id: composer-cache
-      run: |
-        echo "::set-output name=dir::$(composer config cache-files-dir)"
+#     - name: Get Composer Cache Directory
+#       id: composer-cache
+#       run: |
+#         echo "::set-output name=dir::$(composer config cache-files-dir)"
 
-    - name: Cache Composer Downloads
-      uses: actions/cache@v1
-      with:
-        path: ${{ steps.composer-cache.outputs.dir }}
-        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-composer-
+#     - name: Cache Composer Downloads
+#       uses: actions/cache@v1
+#       with:
+#         path: ${{ steps.composer-cache.outputs.dir }}
+#         key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+#         restore-keys: |
+#           ${{ runner.os }}-composer-
       
-    - name: Cache PHP dependencies
-      uses: actions/cache@v1
-      with:
-        path: vendor
-        key: ${{ runner.OS }}-build-${{ hashFiles('**/composer.lock') }}
-          
+#     - name: Cache PHP dependencies
+#       uses: actions/cache@v1
+#       with:
+#         path: vendor
+#         key: ${{ runner.OS }}-build-${{ hashFiles('**/composer.lock') }}
 
     - name: PHPUnit tests
       uses: php-actions/phpunit@v1
       with:
-        config: ./phpunit.xml
+        config: phpunit.xml
+        
