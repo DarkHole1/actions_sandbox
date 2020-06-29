@@ -1,0 +1,21 @@
+#HttpErrorsPopup {
+  z-index: 999999;
+  position: absolute;
+  display: flex;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+
+  &>* {
+    flex-grow: 0;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    background-color: gray;
+    max-width: 75%;
+    min-width: 35%;
+    cursor: pointer;
+    user-select: none;
+  }
+}

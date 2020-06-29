@@ -1,0 +1,25 @@
+.auth-view {
+  min-height: calc(100vh - 2rem);
+  display: flex;
+  flex-direction: column;
+
+  .main-area {
+    flex: 1;
+    display: flex;
+    flex-flow: row;
+    margin-top: 0.5rem;
+
+    &>* {
+      flex-grow: 1;
+      border: 0.2px solid silver;
+
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    &>*:first-child {
+      flex-grow: 0;
+      margin-right: 0.5rem;
+    }
+  }
+}

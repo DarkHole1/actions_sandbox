@@ -1,0 +1,12 @@
+<?php
+class CONFIGS {
+	public static function DB(){
+		return array(
+			'host' => 'localhost',
+			'user' => 'test',
+			'pass' => 'test',
+			'db' => 'test'
+		);
+	}
+}
+?>

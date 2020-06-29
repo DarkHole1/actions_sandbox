@@ -1,0 +1,42 @@
+.tasks-list-area {
+  .controls {
+    flex-direction: row-reverse;
+    padding: 0.4rem;
+
+    &>* {
+      flex-grow: 0;
+      padding: 0 0.1rem;
+
+      button {
+        font-size: 0.9rem;
+        padding: 0.2rem;
+      }
+    }
+  }
+
+  table {
+    th {
+      vertical-align: middle;
+    }
+
+    .task-list-item {
+      cursor: pointer;
+
+      .task-title {
+        text-align: left;
+      }
+
+      &.task-progress-insufficient {
+        background-color: lighten(red, 25%);
+      }
+
+      &.task-progress-processing {
+        background-color: lighten(yellow, 25%);
+      }
+
+      &.task-progress-done {
+        background-color: lighten(green, 25%);
+      }
+    }
+  }
+}

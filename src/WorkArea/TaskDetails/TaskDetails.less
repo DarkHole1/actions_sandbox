@@ -1,0 +1,42 @@
+.property-table-mixin() {
+  width: 100% !important;
+
+  .title {
+    font-weight: 600;
+  }
+
+  td {
+    padding: 0;
+
+    border-top: none;
+  }
+
+  .property-title {
+    white-space: nowrap;
+    text-align: left;
+    vertical-align: middle;
+    width: 1px;
+    padding-right: 0.25rem;
+  }
+
+  .property-value {
+    &>*, input {
+      width: 100%;
+    }
+  }
+}
+
+.task-details-page {
+  .common-properties {
+    .property-table-mixin();
+  }
+
+  .history-chart {
+    width: 100%;
+    min-height: 35vh;
+  }
+
+  .day-stats {
+    .property-table-mixin();
+  }
+}

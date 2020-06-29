@@ -1,0 +1,21 @@
+AddCharset utf-8 .php
+
+<FilesMatch /includes(/?|/.*)>
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+RedirectMatch 404 ^/includes(/?|/.*)$
+
+<FilesMatch /configs(/?|/.*)>
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+RedirectMatch 404 ^/configs(/?|/.*)$
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteRule . ./index.html [L]
+</IfModule>

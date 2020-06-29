@@ -1,0 +1,57 @@
+.header-menu {
+  display: block;
+  padding: 0.1rem;
+  border: 0.2px solid silver;
+
+  .header-controls {
+    float: right;
+    padding: 0.1rem;
+
+    .settings-icon {
+      margin-right: 0.5rem;
+
+      img {
+        margin: auto;
+        max-height: 1.5rem;
+      }
+    }
+
+    * {
+      font-size: 0.75rem;
+    }
+  }
+
+  .avatar {
+    display: flex;
+    flex-direction: row;
+    margin: 0.2rem;
+
+    .avatar-img {
+      flex-grow:0;
+      margin: auto;
+
+      img {
+        max-width: 75px;
+        max-height: 75px;
+        min-width: 75px;
+        min-height: 75px;
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .avatar-text {
+      padding-left: 1rem;
+      margin: auto;
+      flex-grow: 1;
+
+      span {
+        border-bottom: 1px solid silver;
+      }
+
+      div {
+        padding-bottom: 0.15rem;
+      }
+    }
+  }
+}

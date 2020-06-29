@@ -1,0 +1,22 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+
+  .item {
+    padding: 0.15rem 0.5rem;
+
+    text-decoration: none;
+    text-align: left;
+    color: black;
+
+    border: 1px solid black;
+
+    &:hover {
+      background-color: skyblue;
+    }
+
+    &.active-item {
+      background-color: gray;
+    }
+  }
+}
