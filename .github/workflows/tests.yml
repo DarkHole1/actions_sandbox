@@ -38,6 +38,8 @@ jobs:
         path: vendor
         key: ${{ runner.OS }}-build-${{ hashFiles('**/composer.lock') }}
 
+    - uses: php-actions/composer@master
+      
     - name: PHPUnit tests
       run: |
         composer dump-autoload -o
