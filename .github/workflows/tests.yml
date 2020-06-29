@@ -52,11 +52,13 @@ jobs:
 
     - name: Install Dependencies
       if: steps.cache.outputs.cache-hit != 'true'
-      run: npm ci
+      run: |
+        npm ci
+        npm i jest-junit
 
     - name: JS tests
       continue-on-error: true
-      run: ./node_modules/.bin/jest
+      run: ./node_modules/.bin/jest --ci --reporters=default --reporters=jest-junit
       
     - uses: IgnusG/jest-report-action@master
       with:
