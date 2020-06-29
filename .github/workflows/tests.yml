@@ -39,7 +39,6 @@ jobs:
 #         key: ${{ runner.OS }}-build-${{ hashFiles('**/composer.lock') }}
 
     - name: PHPUnit tests
-      uses: php-actions/phpunit@v1
-      with:
-        config: ./phpunit.xml
-        bootstrap: ./public/includes/vendor/ClassLoader/ClassLoader.class.php
+      run: |
+        composer dump-autoload -o
+        ./vendor/bin/phpunit phptests
