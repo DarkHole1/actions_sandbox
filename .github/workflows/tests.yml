@@ -12,12 +12,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Setup Node.js
       uses: actions/setup-node@v1
       with:
         node-version: 14.x
-    - run: npm ci
-    - run: ./node_modules/.bin/jest
 
     - name: Get Composer Cache Directory
       id: composer-cache
@@ -38,9 +36,13 @@ jobs:
         path: vendor
         key: ${{ runner.OS }}-build-${{ hashFiles('**/composer.lock') }}
 
-    - uses: php-actions/composer@master
+    - name: composer install missing files
+      run: composer install
       
     - name: PHPUnit tests
       run: |
         composer dump-autoload -o
         ./vendor/bin/phpunit phptests
+
+    - run: npm ci
+    - run: ./node_modules/.bin/jest
