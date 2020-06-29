@@ -55,4 +55,9 @@ jobs:
       run: npm ci
 
     - name: JS tests
+      continue-on-error: true
       run: ./node_modules/.bin/jest
+      
+    - uses: IgnusG/jest-report-action@master
+      with:
+        access-token: ${{ secrets.GITHUB_TOKEN }}
