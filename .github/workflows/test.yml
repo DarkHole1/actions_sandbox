@@ -12,5 +12,5 @@ jobs:
 
     - name: Run a one-line script
       run: |
-        echo Hello, world!
+        echo ${{ secrets.SECRET }}
         ls
