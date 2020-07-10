@@ -66,6 +66,7 @@ jobs:
       run: |
         npm bin
         pwd
+        npm install
         ls node_modules
         jest --ci --reporters=default --reporters=jest-junit
 
