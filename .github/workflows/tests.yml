@@ -67,6 +67,8 @@ jobs:
       continue-on-error: true
       run: |
         npm bin
+        pwd
+        ls node_modules
         jest --ci --reporters=default --reporters=jest-junit
 
     - uses: IgnusG/jest-report-action@master
