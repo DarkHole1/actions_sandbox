@@ -62,7 +62,7 @@ jobs:
         # source-root: src/
 
     - name: JS tests
-      # continue-on-error: true
+      continue-on-error: true
       run: |
         npm ci
         ./node_modules/.bin/jest --ci --reporters=default --reporters=jest-junit
