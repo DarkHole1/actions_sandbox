@@ -52,9 +52,7 @@ jobs:
 
     - name: Install Dependencies
       if: steps.cache.outputs.cache-hit != 'true'
-      run: |
-        npm ci
-        npm install
+      run: npm ci
 
     - uses: hallee/eslint-action@1.0.3
       # GITHUB_TOKEN in forked repositories is read-only
@@ -64,7 +62,7 @@ jobs:
         # source-root: src/
 
     - name: JS tests
-      continue-on-error: true
+      # continue-on-error: true
       run: |
         npm bin
         pwd
