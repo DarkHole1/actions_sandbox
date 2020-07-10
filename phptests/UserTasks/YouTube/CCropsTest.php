@@ -10,6 +10,7 @@ class UserTasks_YouTube_CCropsTest extends BasicTaskUseCase {
   public function validData() {
     return [
       'track' => 't',
+      'artist' => 'a',
       'description' => 'd',
       'date' => '21.11.2010',
       'network' => 'YouTube',
