@@ -40,6 +40,7 @@
     "is-wsl": "^1.1.0",
     "jest": "24.9.0",
     "jest-environment-jsdom-fourteen": "0.1.0",
+    "jest-junit": "^11.0.1",
     "jest-resolve": "24.9.0",
     "jest-watch-typeahead": "0.4.0",
     "jquery": "^3.4.1",
