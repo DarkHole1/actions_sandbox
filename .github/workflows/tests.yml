@@ -65,7 +65,9 @@ jobs:
 
     - name: JS tests
       continue-on-error: true
-      run: ./node_modules/.bin/jest --ci --reporters=default --reporters=jest-junit
+      run: |
+        ls
+        ./node_modules/.bin/jest --ci --reporters=default --reporters=jest-junit
 
     - uses: IgnusG/jest-report-action@master
       with:
