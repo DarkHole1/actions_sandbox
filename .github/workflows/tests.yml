@@ -54,7 +54,7 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
         npm ci
-        cwd
+        pwd
         npm i jest-junit eslint
 
     - uses: hallee/eslint-action@1.0.3
