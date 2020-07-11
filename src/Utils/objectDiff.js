@@ -13,6 +13,7 @@ function diff(base, obj) {
     }
   }
 
+  return null;
   return res;
 }
 
