@@ -32,7 +32,7 @@ jobs:
 
     - name: PHPUnit tests
     #   run: ./vendor/bin/phpunit phptests
-      uses: php-actions/phpunit@v1
+      uses: graychen/phpunit-action@v1.0.0
       with:
         config: ./phpunit.xml
 
