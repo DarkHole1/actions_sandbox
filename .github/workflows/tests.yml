@@ -31,7 +31,8 @@ jobs:
       run: composer install --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
 
     - name: PHPUnit tests
-      run: ./vendor/bin/phpunit phptests
+    #   run: ./vendor/bin/phpunit phptests
+      uses: php-actions/phpunit@v1
 
   jest:
     runs-on: ubuntu-latest
