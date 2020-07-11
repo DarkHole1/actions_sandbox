@@ -43,7 +43,7 @@ jobs:
       with:
         node-version: 14.x
 
-    - uses: hallee/eslint-action@1.0.3
+    - uses: DarkHole1/eslint-action@1.0.4
       # GITHUB_TOKEN in forked repositories is read-only
       if: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }}
       with:
