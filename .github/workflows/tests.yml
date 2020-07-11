@@ -43,17 +43,6 @@ jobs:
       with:
         node-version: 14.x
 
-    # - name: Cache dependencies
-    #   id: cache
-    #   uses: actions/cache@v2
-    #   with:
-    #     path: ./node_modules/
-    #     key: ${{ runner.os }}-${{ hashFiles('package*.json') }}-v2
-    #
-    # - name: Install Dependencies
-    #   if: steps.cache.outputs.cache-hit != 'true'
-    #   run: npm ci
-
     - uses: hallee/eslint-action@1.0.3
       # GITHUB_TOKEN in forked repositories is read-only
       if: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }}
@@ -61,11 +50,20 @@ jobs:
         repo-token: ${{secrets.GITHUB_TOKEN}}
         # source-root: src/
 
+    - name: Cache dependencies
+      id: cache
+      uses: actions/cache@v2
+      with:
+        path: ./node_modules/
+        key: ${{ runner.os }}-${{ hashFiles('package*.json') }}-v2
+
+    - name: Install Dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: npm ci
+
     - name: JS tests
       continue-on-error: true
-      run: |
-        npm ci
-        ./node_modules/.bin/jest --ci --reporters=default --reporters=jest-junit
+      run: ./node_modules/.bin/jest --ci --reporters=default --reporters=jest-junit
 
     - uses: IgnusG/jest-report-action@master
       with:
