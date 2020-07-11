@@ -13,6 +13,8 @@ function diff(base, obj) {
     }
   }
 
+  return null;
+  // eslint-disable-next-line
   return res;
 }
 
