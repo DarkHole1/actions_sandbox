@@ -33,6 +33,8 @@ jobs:
     - name: PHPUnit tests
     #   run: ./vendor/bin/phpunit phptests
       uses: php-actions/phpunit@v1
+      with:
+        config: ./phpunit.xml
 
   jest:
     runs-on: ubuntu-latest
