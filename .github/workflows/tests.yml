@@ -35,6 +35,7 @@ jobs:
       uses: php-actions/phpunit@v1
       with:
         config: ./phpunit.xml
+        junit: junit.xml
 
   jest:
     runs-on: ubuntu-latest
