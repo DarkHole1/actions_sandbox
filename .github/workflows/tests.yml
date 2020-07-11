@@ -60,6 +60,7 @@ jobs:
       with:
         repo-token: ${{secrets.GITHUB_TOKEN}}
         source-root: src/
+        node-root: ../node_modules
 
     - name: JS tests
       continue-on-error: true
