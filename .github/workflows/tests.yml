@@ -43,13 +43,6 @@ jobs:
       with:
         node-version: 14.x
 
-    - uses: DarkHole1/eslint-action@1.0.4
-      # GITHUB_TOKEN in forked repositories is read-only
-      if: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }}
-      with:
-        repo-token: ${{secrets.GITHUB_TOKEN}}
-        # source-root: src/
-
     - name: Cache dependencies
       id: cache
       uses: actions/cache@v2
@@ -60,6 +53,13 @@ jobs:
     - name: Install Dependencies
       if: steps.cache.outputs.cache-hit != 'true'
       run: npm ci
+
+    - uses: DarkHole1/eslint-action@1.0.4
+      # GITHUB_TOKEN in forked repositories is read-only
+      if: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }}
+      with:
+        repo-token: ${{secrets.GITHUB_TOKEN}}
+        source-root: src/
 
     - name: JS tests
       continue-on-error: true
