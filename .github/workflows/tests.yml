@@ -54,12 +54,12 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
       run: npm ci
 
-    - uses: DarkHole1/eslint-action@1.0.5.1
+    - uses: DarkHole1/eslint-action
       # GITHUB_TOKEN in forked repositories is read-only
       if: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }}
       with:
         repo-token: ${{secrets.GITHUB_TOKEN}}
-        source-root: src/
+        source-root: ./src/
         node-root: ../node_modules
 
     - name: JS tests
