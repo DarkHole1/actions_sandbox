@@ -178,5 +178,10 @@
     "gulp": "^4.0.2",
     "gulp-cli": "^2.2.0",
     "gulp-phpunit": "^0.26.0"
+  },
+  "jest-junit": {
+    "suiteNameTemplate": "{filepath}",
+    "classNameTemplate": "{classname}",
+    "titleTemplate": "{title}"
   }
 }
