@@ -34,7 +34,7 @@ jobs:
       # run: ./vendor/bin/phpunit phptests --log-junit junit.xml
       uses: php-actions/phpunit@v1
       with:
-        config: ./phpunit.xml
+        config: phpunit.xml
         junit: junit.xml
 
   jest:
