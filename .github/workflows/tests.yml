@@ -33,6 +33,11 @@ jobs:
     - name: PHPUnit tests
       run: ./vendor/bin/phpunit phptests --log-junit junit.xml
 
+    - name: Parse junit files
+      uses: DarkHole1/phpunit-junit@master
+      with:
+          access-token: ${{ secrets.GITHUB_TOKEN }}
+
   jest:
     runs-on: ubuntu-latest
 
