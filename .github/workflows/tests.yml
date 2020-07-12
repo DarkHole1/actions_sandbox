@@ -35,7 +35,7 @@ jobs:
 
     - name: Parse junit files
       if: always()
-      uses: DarkHole1/phpunit-junit-action@master
+      uses: DarkHole1/phpunit-junit-action@0.0.1
       with:
           access-token: ${{ secrets.GITHUB_TOKEN }}
 
