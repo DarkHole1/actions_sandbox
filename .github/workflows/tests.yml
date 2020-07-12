@@ -34,7 +34,7 @@ jobs:
       run: ./vendor/bin/phpunit phptests --log-junit junit.xml
 
     - name: Parse junit files
-      uses: DarkHole1/phpunit-junit@master
+      uses: DarkHole1/phpunit-junit-action@master
       with:
           access-token: ${{ secrets.GITHUB_TOKEN }}
 
