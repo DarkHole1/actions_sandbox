@@ -34,7 +34,7 @@ jobs:
       run: ./vendor/bin/phpunit phptests --log-junit junit.xml
 
     - name: Parse junit files
-      if: always()
+      if: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }}
       uses: DarkHole1/phpunit-junit-action@v0.0.2
       with:
           access-token: ${{ secrets.GITHUB_TOKEN }}
@@ -73,5 +73,6 @@ jobs:
       run: ./node_modules/.bin/jest --ci --reporters=default --reporters=jest-junit
 
     - uses: IgnusG/jest-report-action@master
+      if: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }}
       with:
         access-token: ${{ secrets.GITHUB_TOKEN }}
